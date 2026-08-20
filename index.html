@@ -419,10 +419,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 .theme-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .t-card{
   background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
-  padding:26px; cursor:pointer; position:relative; overflow:hidden;
+  padding:26px; position:relative; overflow:hidden;
   transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
-.t-card:hover, .t-card.open{ box-shadow:var(--shadow-md); transform:translateY(-3px); border-color:transparent; }
+.t-card:hover{ box-shadow:var(--shadow-md); transform:translateY(-3px); border-color:transparent; }
 .t-card::before{
   content:""; position:absolute; top:0; left:0; right:0; height:3px;
   background:var(--accent, linear-gradient(90deg,var(--orange),var(--pink)));
@@ -432,13 +432,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 .t-ic{ width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center; }
 .t-card h3{ font-size:18px; margin:20px 0 6px; }
 .t-desc{
-  font-size:14px; color:var(--ink-soft); line-height:1.6;
-  max-height:0; opacity:0; overflow:hidden; transition:max-height .35s ease, opacity .3s ease, margin .3s ease;
+  font-size:14px; color:var(--ink-soft); line-height:1.6; margin-top:10px;
 }
-.t-card.open .t-desc{ max-height:160px; opacity:1; margin-top:10px; }
-.t-toggle{ display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--orange-dark); margin-top:16px; }
-.t-toggle svg{ transition:transform .3s ease; }
-.t-card.open .t-toggle svg{ transform:rotate(45deg); }
 @media (max-width:920px){ .theme-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:600px){ .theme-grid{ grid-template-columns:1fr; } }
 
@@ -487,9 +482,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   font-size:12.5px; font-family:var(--font-mono); background:var(--surface-2); color:var(--ink-soft);
   padding:6px 12px; border-radius:8px;
 }
-.j-filename{
-  margin-top:14px; font-family:var(--font-mono); font-size:13px; background:var(--ink); color:#fff;
-  padding:10px 14px; border-radius:8px; display:inline-block;
+.j-cta{ margin-top:14px; padding:10px 22px; font-size:14px; display:inline-flex; }
+.j-note{
+  margin-top:14px; font-family:var(--font-mono); font-size:12.5px; font-weight:600; letter-spacing:.04em;
+  color:var(--orange-dark); background:var(--orange-soft); padding:8px 14px; border-radius:8px; display:inline-block;
 }
 @media (max-width:640px){
   .j-item{ grid-template-columns:44px 1fr; gap:16px; }
@@ -513,14 +509,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 /* ============================================================
    AWARDS
    ============================================================ */
-.award-tabs{ display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap; }
-.award-tab{
-  padding:11px 22px; border-radius:999px; border:1.5px solid var(--border); background:var(--surface);
-  font-weight:600; font-size:14px; color:var(--ink-soft); transition:.2s ease;
-}
-.award-tab.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
-.prize-grid{ display:none; grid-template-columns:repeat(3,1fr); gap:20px; }
-.prize-grid.active{ display:grid; }
+.prize-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .p-card{
   border-radius:var(--radius-lg); padding:32px 26px; text-align:center; position:relative;
   border:1px solid var(--border); background:var(--surface);
@@ -531,10 +520,17 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   transform:scale(1.04);
 }
 .p-card .rank{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.1em; opacity:.7; }
-.p-card .amt{ font-family:var(--font-display); font-weight:800; font-size:34px; margin:14px 0 6px; }
-.p-card.first .amt{ background:linear-gradient(100deg,#f6b26b,#f2a1c3); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.p-card .place{ font-size:13.5px; color:var(--ink-faint); }
-.p-card.first .place{ color:#d8d3da; }
+.p-card .amt-rows{ margin-top:18px; display:flex; flex-direction:column; gap:0; }
+.p-card .amt-row{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  padding:12px 2px; border-top:1px solid var(--border);
+}
+.p-card .amt-row:first-child{ border-top:none; }
+.p-card.first .amt-row{ border-top-color:rgba(255,255,255,0.14); }
+.p-card .amt-row .cat{ font-size:13.5px; color:var(--ink-faint); font-weight:600; }
+.p-card.first .amt-row .cat{ color:#d8d3da; }
+.p-card .amt-row .amt{ font-family:var(--font-display); font-weight:800; font-size:19px; }
+.p-card.first .amt-row .amt{ background:linear-gradient(100deg,#f6b26b,#f2a1c3); -webkit-background-clip:text; background-clip:text; color:transparent; }
 @media (max-width:920px){ .prize-grid{ grid-template-columns:1fr; } .p-card.first{ transform:none; } }
 
 /* ============================================================
@@ -1009,7 +1005,6 @@ footer .flinks a:hover{ color:#fff; }
       <span class="eyebrow">Awards &amp; Prizes</span>
       <h2>Cash prizes across every category</h2>
     </div>
-    <div class="award-tabs reveal" id="awardTabs"></div>
     <div id="awardPanels"></div>
   </div>
 </section>
@@ -1206,8 +1201,7 @@ const journey = [
   {
     step:"01", title:"Idea Submission",
     text:"Select any theme and submit your idea in 1000–2000 words.",
-    details:["Name", "Roll number", "College", "Branch", "Year", "College ID / proof of candidature"],
-    filename:"Category-Theme-FirstName-LastName",
+    details:[], cta:true,
   },
   {
     step:"02", title:"Evaluation of Ideas",
@@ -1217,7 +1211,7 @@ const journey = [
   {
     step:"03", title:"Presentation",
     text:"Selected ideas are presented before an expert panel.",
-    details:["Duration: 10 minutes", "Student participant presents", "Faculty mentor may not present"],
+    details:[],
   },
   {
     step:"04", title:"Result Declaration",
@@ -1227,7 +1221,7 @@ const journey = [
   {
     step:"05", title:"Award Ceremony",
     text:"Winners are invited to the RGIPT campus for the award ceremony.",
-    details:[],
+    details:[], note:"Date & time — coming soon",
   },
 ];
 
@@ -1241,11 +1235,11 @@ const dates = [
 ];
 
 // ---- src/data/awards.js ----
-const awards = {
-  PG: [ {rank:"1st",amt:"₹40,000"}, {rank:"2nd",amt:"₹30,000"}, {rank:"3rd",amt:"₹20,000"} ],
-  UG: [ {rank:"1st",amt:"₹30,000"}, {rank:"2nd",amt:"₹20,000"}, {rank:"3rd",amt:"₹10,000"} ],
-  Diploma: [ {rank:"1st",amt:"₹25,000"}, {rank:"2nd",amt:"₹15,000"}, {rank:"3rd",amt:"₹5,000"} ],
-};
+const awardsByRank = [
+  { rank:"1st Place", items:[ {cat:"PG",amt:"₹40,000"}, {cat:"UG",amt:"₹30,000"}, {cat:"Diploma",amt:"₹25,000"} ] },
+  { rank:"2nd Place", items:[ {cat:"PG",amt:"₹30,000"}, {cat:"UG",amt:"₹20,000"}, {cat:"Diploma",amt:"₹15,000"} ] },
+  { rank:"3rd Place", items:[ {cat:"PG",amt:"₹20,000"}, {cat:"UG",amt:"₹10,000"}, {cat:"Diploma",amt:"₹5,000"} ] },
+];
 
 // ---- src/data/committee.js ----
 const patron = { name:"Professor Harish Hirani", role:"Patron", org:"Director, RGIPT", photo:"prof-harish-hirani.jpg" };
@@ -1352,12 +1346,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <h3>${t.title}</h3>
       <div class="t-desc">${t.desc}</div>
-      <div class="t-toggle">Read full scope ${ICONS.plus}</div>
     </div>`;
   }).join("");
-  document.querySelectorAll(".t-card").forEach(card=>{
-    card.addEventListener("click", ()=> card.classList.toggle("open"));
-  });
 
   // eligibility
   document.getElementById("eligGrid").innerHTML = eligibility.map((e,i)=>`
@@ -1376,7 +1366,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${j.title}</h3>
         <p>${j.text}</p>
         ${j.details.length ? `<div class="j-details">${j.details.map(d=>`<span>${d}</span>`).join("")}</div>` : ""}
-        ${j.filename ? `<div class="j-filename">${j.filename}</div>` : ""}
+        ${j.cta ? `<a href="${eventConfig.registrationUrl}" class="btn btn-primary j-cta" target="_blank" rel="noopener">Participate Now</a>` : ""}
+        ${j.note ? `<div class="j-note">${j.note}</div>` : ""}
       </div>
     </div>`).join("");
 
@@ -1389,25 +1380,16 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`).join("");
 
   // awards
-  const cats = Object.keys(awards);
-  document.getElementById("awardTabs").innerHTML = cats.map((c,i)=>`<button class="award-tab ${i===0?'active':''}" data-cat="${c}">${c}</button>`).join("");
-  document.getElementById("awardPanels").innerHTML = cats.map((c,i)=>`
-    <div class="prize-grid ${i===0?'active':''}" data-panel="${c}">
-      ${awards[c].map(p=>`
-        <div class="p-card ${p.rank==='1st'?'first':''}">
-          <div class="rank">${p.rank} PLACE</div>
-          <div class="amt">${p.amt}</div>
-          <div class="place">${c} Category</div>
+  document.getElementById("awardPanels").innerHTML = `
+    <div class="prize-grid">
+      ${awardsByRank.map((r,i)=>`
+        <div class="p-card ${i===0?'first':''}">
+          <div class="rank">${r.rank.toUpperCase()}</div>
+          <div class="amt-rows">
+            ${r.items.map(it=>`<div class="amt-row"><span class="cat">${it.cat}</span><span class="amt">${it.amt}</span></div>`).join("")}
+          </div>
         </div>`).join("")}
-    </div>`).join("");
-  document.querySelectorAll(".award-tab").forEach(tab=>{
-    tab.addEventListener("click", ()=>{
-      document.querySelectorAll(".award-tab").forEach(t=>t.classList.remove("active"));
-      document.querySelectorAll(".prize-grid").forEach(p=>p.classList.remove("active"));
-      tab.classList.add("active");
-      document.querySelector(`.prize-grid[data-panel="${tab.dataset.cat}"]`).classList.add("active");
-    });
-  });
+    </div>`;
 
   // lifetime achievement pill (data-driven, ready for real recipient info)
   const recipient = eventConfig.awardRecipient || { name: "To Be Announced" };
