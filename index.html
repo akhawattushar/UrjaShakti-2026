@@ -710,7 +710,7 @@ footer .flinks a:hover{ color:#fff; }
     </div>
     <div class="hero-visual">
       <div class="hero-ambient" aria-hidden="true"></div>
-      <div class="hero3d-wrap" id="hero3d" role="img" aria-label="A slowly rotating 3D glass exhibition — a translucent glass sphere and rings, the Urja Shakti logo on a floating glass plate, and faint glass panels bearing photographs of women achievers in STEM and leadership">
+      <div class="hero3d-wrap" id="hero3d" role="img" aria-label="A slowly rotating 3D glass sculpture — a warm glowing core like a sunrise, three interlocking glass petal loops in the Urja Shakti brand colours echoing the logo's flower mark, and the Urja Shakti logo on its own floating glass plate">
         <div class="hero3d-fallback" aria-hidden="true"><img alt="" /></div>
       </div>
     </div>
@@ -993,7 +993,6 @@ footer .flinks a:hover{ color:#fff; }
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<script src="women-achievers.js" defer></script>
 <script src="hero-glass-3d.js" defer></script>
 <script>
 /* ============================================================
@@ -1150,7 +1149,8 @@ function avatarStyle(i){ return `background:${AVATAR_COLORS[i % AVATAR_COLORS.le
 /* ============================================================
    HERO 3D — glass exhibition visual, implemented in the isolated
    UrjaHero3D module (see hero-glass-3d.js / hero-glass-3d.css).
-   This just wires it up to the DOM + the achievers data file.
+   This just wires it up to the DOM. The scene itself is entirely
+   procedural glass/light — no photography involved.
    ============================================================ */
 function initHero3D(){
   const wrap = document.getElementById("hero3d");
@@ -1166,8 +1166,7 @@ function initHero3D(){
   // including setting the fallback logo image, so we always delegate to it.
   window.UrjaHero3D.init({
     containerId: "hero3d",
-    logoSrc: "assets/logo/urja-shakti-logo.png",
-    achievers: window.WOMEN_ACHIEVERS || []
+    logoSrc: "assets/logo/urja-shakti-logo.png"
   });
 }
 

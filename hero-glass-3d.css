@@ -12,6 +12,14 @@
   perspective:1400px;
 }
 
+/* a faint warm horizon glow beneath the glass scene — a quiet nod to
+   sunrise/energy, kept subtle so it reads as atmosphere, not a backdrop */
+.hero-visual::before{
+  content:"";
+  position:absolute; z-index:0; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent 52%, rgba(233,116,23,0.07) 76%, rgba(212,30,115,0.09) 100%);
+}
+
 /* soft ambient glow sitting behind the glass scene — cheap, adds depth */
 .hero-ambient{
   position:absolute; z-index:0;
