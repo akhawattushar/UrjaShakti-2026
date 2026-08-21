@@ -215,6 +215,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   .nav-links{ display:none; }
   .nav-cta{ display:none; }
   .hamburger{ display:flex; }
+  /* center the brand/logo in the mobile nav, hamburger pinned right */
+  .nav .wrap{ position:relative; justify-content:center; }
+  .nav-right{ position:absolute; right:28px; top:50%; transform:translateY(-50%); }
+}
+@media (max-width:480px){
+  .brand-text span{ display:none; }
 }
 
 /* ============================================================
@@ -370,9 +376,14 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 }
 @media (max-width:920px){
   .hero{ min-height:560px; }
-  .hero-topbar{ flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px; }
-  .hero-topbar-tagline{ text-align:left; max-width:none; }
-  .hero-main{ flex-direction:column; gap:24px; }
+  .hero-content{ align-items:center; }
+  .hero-topbar{
+    flex-direction:column; align-items:center; text-align:center;
+    gap:14px; margin-bottom:26px;
+  }
+  .hero-topbar-left{ flex-direction:column; text-align:center; padding:14px 20px; }
+  .hero-topbar-tagline{ text-align:center; max-width:320px; }
+  .hero-main{ flex-direction:column; gap:20px; align-items:center; }
   .hero-main-left{ flex-basis:auto; margin-top:0; order:-1; }
   .hero-main-right{ align-items:center; text-align:center; order:1; }
   .hero-main-right .lede{ margin-left:auto; margin-right:auto; }
@@ -384,22 +395,20 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   .hero-logo-big{ max-width:150px; }
 
   /* The animated wind/solar scene keeps running on mobile — only the
-     sun's geometry (tuned for a 16:9 canvas) is shrunk and tucked up
-     near the top so "slice" cropping on tall/narrow screens no longer
-     blows it up into a flat disc sitting behind the logo and copy. */
-  .hero-scene .sun circle:nth-of-type(1){ r:110px; cy:130px; }
-  .hero-scene .sun circle:nth-of-type(2){ r:44px; cy:130px; }
-}
-@media (max-width:560px){
-  .hero-logo-big{ max-width:130px; }
-  .hero-scene .sun circle:nth-of-type(1){ r:85px; cy:95px; }
-  .hero-scene .sun circle:nth-of-type(2){ r:34px; cy:95px; }
+     sun's geometry (tuned for a 16:9 canvas) is shrunk and pulled well
+     above the content so "slice" cropping on tall/narrow screens no
+     longer blows it up into a flat disc sitting behind the topbar. */
+  .hero-scene .sun circle:nth-of-type(1){ r:90px; cy:40px; }
+  .hero-scene .sun circle:nth-of-type(2){ r:36px; cy:40px; }
 }
 @media (max-width:560px){
   .hero{ min-height:520px; }
   .hero-content{ padding:calc(var(--nav-h) + 14px) 18px 32px; }
   .hero-topbar-logo{ height:46px; width:46px; }
   .hero-meta{ display:none; }
+  .hero-logo-big{ max-width:130px; }
+  .hero-scene .sun circle:nth-of-type(1){ r:70px; cy:20px; }
+  .hero-scene .sun circle:nth-of-type(2){ r:28px; cy:20px; }
 }
 
 /* ============================================================
