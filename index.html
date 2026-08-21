@@ -369,29 +369,29 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 }
 @media (max-width:920px){
   .hero{ min-height:560px; }
-  .hero-topbar{ flex-direction:column; align-items:flex-start; gap:14px; }
+  .hero-topbar{ flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px; }
   .hero-topbar-tagline{ text-align:left; max-width:none; }
   .hero-main{ flex-direction:column; gap:32px; }
-  .hero-main-left{ flex-basis:auto; margin-top:0; position:relative; isolation:isolate; }
-  .hero-main-right{ align-items:center; text-align:center; }
+  .hero-main-left{ flex-basis:auto; margin-top:0; position:relative; isolation:isolate; order:2; }
+  .hero-main-right{ align-items:center; text-align:center; order:1; }
   .hero-main-right .lede{ margin-left:auto; margin-right:auto; }
   .hero-actions{ justify-content:center; }
   .hero-meta{ gap:20px; flex-wrap:wrap; padding:14px 22px; justify-content:center; }
 
-  /* On mobile the hero stacks vertically and the page becomes much
-     taller than it is wide. The background scene's "slice" scaling
-     then blows the sun disc up and drags it down the page, where it
-     lands as a flat grey circle directly behind the Urja Shakti logo.
-     Hide that disc at stacked widths and give the logo its own soft
-     glow instead, so it reads cleanly on its own. */
-  .hero-scene .sun{ opacity:0; }
+  /* The decorative wind/solar SVG scene is tuned for wide aspect
+     ratios; at stacked mobile widths its "slice" scaling drags the
+     sun disc down into a flat grey circle behind the logo. Rather
+     than fight that scaling per-element, swap to a flat gradient
+     that keeps the same sunset palette with zero scaling artifacts. */
+  .hero-scene{ display:none; }
+  .hero{ background:linear-gradient(180deg, #170D1D 0%, #4a1a33 32%, #9a4a1f 68%, #d9a25c 100%); }
   .hero-main-left::before{
     content:"";
     position:absolute;
     top:50%; left:50%;
     width:min(80vw,340px); height:min(80vw,340px);
     transform:translate(-50%,-50%);
-    background:radial-gradient(circle, rgba(255,214,150,0.22) 0%, rgba(255,214,150,0.08) 55%, transparent 78%);
+    background:radial-gradient(circle, rgba(255,214,150,0.24) 0%, rgba(255,214,150,0.09) 55%, transparent 78%);
     z-index:-1;
     pointer-events:none;
   }
