@@ -261,8 +261,18 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   padding-bottom:22px; margin-bottom:36px;
   border-bottom:1px solid rgba(255,255,255,0.18);
 }
-.hero-topbar-left{ display:flex; align-items:center; gap:13px; text-align:left; }
-.hero-topbar-logo{ height:60px; width:60px; object-fit:contain; flex:none; filter:drop-shadow(0 3px 10px rgba(0,0,0,0.45)); }
+.hero-topbar-left{
+  display:flex; align-items:center; gap:13px; text-align:left;
+  background:rgba(20,10,16,0.32); border:1px solid rgba(255,255,255,0.14);
+  backdrop-filter:blur(10px) saturate(140%); -webkit-backdrop-filter:blur(10px) saturate(140%);
+  padding:8px 18px 8px 10px; border-radius:999px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.18);
+}
+.hero-topbar-logo{
+  height:60px; width:60px; object-fit:contain; flex:none;
+  background:#fff; border-radius:50%; padding:4px;
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,0.45));
+}
 .hero-topbar-name{ display:flex; flex-direction:column; line-height:1.28; }
 .hero-topbar-name strong{
   font-family:var(--font-display); font-size:14.5px; font-weight:700; color:#FFF9F2;
@@ -278,11 +288,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 }
 
 /* ---- main split: Urja Shakti mark + CTA (left) / heading & copy (right) ---- */
-.hero-main{ width:100%; display:flex; align-items:center; gap:56px; }
+.hero-main{ width:100%; display:flex; align-items:flex-start; gap:56px; }
 .hero-main-left{
   flex:0 0 300px; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;
+  margin-top:56px;
 }
-.hero-logo-big{ width:100%; max-width:260px; height:auto; filter:drop-shadow(0 18px 34px rgba(0,0,0,0.45)); }
+.hero-logo-big{ width:100%; max-width:320px; height:auto; filter:drop-shadow(0 18px 34px rgba(0,0,0,0.45)); }
 .hero-main-right{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column; align-items:flex-start; text-align:left; }
 
 .hero-badge{
@@ -307,9 +318,15 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   color:#FFFFFF;
   text-shadow:0 6px 34px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.4);
 }
-.hero h1 .grad{
-  color:#FFFFFF;
-  filter:drop-shadow(0 4px 18px rgba(0,0,0,0.35));
+.hero h1 .hl-green{
+  color:var(--green);
+  text-shadow:0 2px 4px rgba(0,0,0,0.55), 0 3px 3px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.4);
+  -webkit-text-stroke:0.6px rgba(20,10,10,0.28);
+}
+.hero h1 .hl-pink{
+  color:var(--pink);
+  text-shadow:0 2px 4px rgba(0,0,0,0.55), 0 3px 3px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.4);
+  -webkit-text-stroke:0.6px rgba(20,10,10,0.28);
 }
 .hero .tagline{
   font-family:var(--font-display); font-weight:700;
@@ -347,15 +364,15 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
 
 @media (max-width:1080px){
   .hero-main{ gap:36px; }
-  .hero-main-left{ flex-basis:240px; }
-  .hero-logo-big{ max-width:200px; }
+  .hero-main-left{ flex-basis:240px; margin-top:44px; }
+  .hero-logo-big{ max-width:230px; }
 }
 @media (max-width:920px){
   .hero{ min-height:560px; }
   .hero-topbar{ flex-direction:column; align-items:flex-start; gap:14px; }
   .hero-topbar-tagline{ text-align:left; max-width:none; }
   .hero-main{ flex-direction:column; gap:32px; }
-  .hero-main-left{ flex-basis:auto; }
+  .hero-main-left{ flex-basis:auto; margin-top:0; }
   .hero-main-right{ align-items:center; text-align:center; }
   .hero-main-right .lede{ margin-left:auto; margin-right:auto; }
   .hero-actions{ justify-content:center; }
@@ -921,7 +938,7 @@ footer .flinks a:hover{ color:#fff; }
       </div>
       <div class="hero-main-right">
         <div class="hero-badge"><span class="dot"></span><span id="heroBadgeText">24 AUG 2026 — IDEA SUBMISSIONS OPEN</span></div>
-        <h1>URJA <span class="grad">SHAKTI</span> 2026</h1>
+        <h1><span class="hl-green">URJA</span> <span class="hl-pink">SHAKTI</span> 2026</h1>
         <p class="tagline">Empowering Women. Transforming Energy.</p>
         <p class="lede">A national-level competition by Rajiv Gandhi Institute of Petroleum Technology focused on innovation, technology and women's leadership in the energy sector.</p>
         <div class="hero-actions">
