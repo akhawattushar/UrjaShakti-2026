@@ -262,7 +262,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   border-bottom:1px solid rgba(255,255,255,0.18);
 }
 .hero-topbar-left{ display:flex; align-items:center; gap:13px; text-align:left; }
-.hero-topbar-logo{ height:46px; width:46px; object-fit:contain; flex:none; filter:drop-shadow(0 3px 10px rgba(0,0,0,0.45)); }
+.hero-topbar-logo{ height:60px; width:60px; object-fit:contain; flex:none; filter:drop-shadow(0 3px 10px rgba(0,0,0,0.45)); }
 .hero-topbar-name{ display:flex; flex-direction:column; line-height:1.28; }
 .hero-topbar-name strong{
   font-family:var(--font-display); font-size:14.5px; font-weight:700; color:#FFF9F2;
@@ -323,7 +323,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   background:rgba(12,6,12,0.28); border-radius:14px; padding:10px 18px;
   backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px);
 }
-.hero-main-right .btn{ margin-top:28px; }
+.hero-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:28px; }
 .hero-meta{
   display:flex; gap:32px; margin-top:34px; padding:16px 26px; border-radius:16px;
   background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22);
@@ -358,12 +358,13 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   .hero-main-left{ flex-basis:auto; }
   .hero-main-right{ align-items:center; text-align:center; }
   .hero-main-right .lede{ margin-left:auto; margin-right:auto; }
+  .hero-actions{ justify-content:center; }
   .hero-meta{ gap:20px; flex-wrap:wrap; padding:14px 22px; justify-content:center; }
 }
 @media (max-width:560px){
   .hero{ min-height:520px; }
   .hero-content{ padding:calc(var(--nav-h) + 14px) 18px 32px; }
-  .hero-topbar-logo{ height:38px; width:38px; }
+  .hero-topbar-logo{ height:46px; width:46px; }
   .hero-meta{ display:none; }
 }
 
@@ -917,14 +918,16 @@ footer .flinks a:hover{ color:#fff; }
     <div class="hero-main">
       <div class="hero-main-left">
         <img src="assets/logo/urja-shakti-logo.png" alt="Urja Shakti logo" class="hero-logo-big" />
-        <a href="#" class="btn btn-primary" id="heroParticipate">Participate Now</a>
       </div>
       <div class="hero-main-right">
         <div class="hero-badge"><span class="dot"></span><span id="heroBadgeText">24 AUG 2026 — IDEA SUBMISSIONS OPEN</span></div>
         <h1>URJA <span class="grad">SHAKTI</span> 2026</h1>
         <p class="tagline">Empowering Women. Transforming Energy.</p>
         <p class="lede">A national-level competition by Rajiv Gandhi Institute of Petroleum Technology focused on innovation, technology and women's leadership in the energy sector.</p>
-        <a href="#about" class="btn btn-secondary">Explore Urja Shakti</a>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" id="heroParticipate">Participate Now</a>
+          <a href="#about" class="btn btn-secondary">Explore Urja Shakti</a>
+        </div>
         <div class="hero-meta">
           <div><strong>4th</strong><span>Edition · Since 2021</span></div>
           <div><strong>3</strong><span>Categories</span></div>
