@@ -453,6 +453,13 @@ h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--ink); letter
   background:linear-gradient(135deg,var(--orange-soft),var(--pink-soft) 60%,var(--green-soft));
   border:1px solid var(--border); box-shadow:var(--shadow-md);
 }
+.rgipt-nirf-badge{
+  position:absolute; top:12px; left:12px; z-index:2;
+  width:104px; height:104px;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+}
+.rgipt-nirf-badge img{ width:100%; height:100%; object-fit:contain; display:block; }
+@media (max-width:560px){ .rgipt-nirf-badge{ width:78px; height:78px; top:10px; left:10px; } }
 .rgipt-img img{ width:100%; height:100%; object-fit:cover; display:block; }
 .rgipt-img .ph-fallback{
   display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; gap:12px;
@@ -1028,6 +1035,9 @@ footer .flinks a:hover{ color:#fff; }
 <section id="about-rgipt" class="section-pad" style="background:var(--surface-2);">
   <div class="wrap about-rgipt-wrap">
     <div class="rgipt-img reveal" id="rgiptImgBox">
+      <span class="rgipt-nirf-badge">
+        <img src="assets/badges/nirf-78-2025.png" alt="NIRF Ranking 2025 — #78 Engineering" loading="lazy" />
+      </span>
       <img src="assets/images/rgipt-campus.jpg" alt="RGIPT Jais campus" onerror="this.parentElement.classList.add('img-fallback')" loading="lazy" />
       <div class="ph-fallback" aria-hidden="true">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 11h.01M15 11h.01M9 15h.01M15 15h.01"/></svg>
@@ -1037,9 +1047,9 @@ footer .flinks a:hover{ color:#fff; }
     <div class="rgipt-copy reveal">
       <span class="eyebrow">About RGIPT</span>
       <h2 style="margin-top:14px; font-size:clamp(26px,3.6vw,36px); line-height:1.2;">Rajiv Gandhi Institute of Petroleum Technology, Jais</h2>
-      <p style="margin-top:18px;">RGIPT is an autonomous institution established by the Government of India and accorded the status of an <strong>Institution of National Importance</strong>, on lines similar to the IITs, under the Rajiv Gandhi Institute of Petroleum Technology Act, 2007.</p>
-      <p>The Institute's mission is to build world-class human resources for India's petroleum and energy sector through B.Tech, IDD, M.Tech, MBA and Ph.D. programs across engineering, sciences, humanities and management.</p>
-      <p>RGIPT also runs two extension centers — the Assam Energy Institute in Sivasagar and an Energy Institute in Bengaluru — extending its academic and research reach across the country.</p>
+      <p style="margin-top:18px;">Rajiv Gandhi Institute of Petroleum Technology (RGIPT), Jais, is an autonomous institution established by Ministry of Petroleum and Natural Gas (MoPNG), GOI. The Institute has been accorded the status of "An Institution of National Importance" along the lines of the Indian Institutes of Technology (IIT) under an Act of Parliament ("Rajiv Gandhi Institute of Petroleum Technology Act 2007").</p>
+      <p>The Institute's mission is to build world-class human resources for India's petroleum and energy sector through Diploma, BBA, B.Tech, IDD, M.Tech, MBA and Ph.D. programs across engineering, sciences, humanities and management.</p>
+      <p>To supplement its on-campus academic offerings, the RGIPT has established two campuses at Sivasagar, Assam: RGIPT Sivasagar campus, and Bengaluru, Karnataka: RGIPT Bengaluru.</p>
     </div>
   </div>
 </section>
@@ -1050,8 +1060,8 @@ footer .flinks a:hover{ color:#fff; }
     <div class="about-copy reveal">
       <span class="eyebrow">About Urja Shakti</span>
       <h2 style="margin-top:14px; font-size:clamp(26px,3.6vw,36px); line-height:1.2;">Energy needs more women leading it.</h2>
-      <p style="margin-top:20px;"><strong>Urja Shakti</strong> is RGIPT's national initiative to celebrate and grow women's presence in the energy sector. Launched in 2021, it gives young women a platform to explore the sector's technologies, markets and policies — and the 2026 edition marks its fourth year.</p>
-      <p>Participants develop and pitch original ideas across six energy themes, building the kind of confident, forward-looking thinking the sector needs — and contributing to a wider push for gender equality across energy careers.</p>
+      <p style="margin-top:20px;"><strong>Urja Shakti</strong> is RGIPT's national initiative to celebrate women's presence and their contribution in the energy sector. Launched in 2021, it gives young women a platform to explore the sector's technologies, markets and policies — and the 2026 edition marks its fourth year.</p>
+      <p>Through write-up competition participants develop and pitch original ideas across six energy themes, building the kind of confident, forward-looking thinking the sector needs — and contributing to a wider push for gender equality across energy careers.</p>
     </div>
     <div class="reveal">
       <div class="stat-grid">
@@ -1298,7 +1308,7 @@ const eventConfig = {
   youtubeUrl: "#",
   websiteUrl: "https://rgipt.ac.in/urjashakti26/",
   contactEmail: "urjashakti@rgipt.ac.in",
-  contactPhone: "+91 535 270 4671 / 4512",
+  contactPhone: "+91 81270 30060",
 };
 
 // ---- src/data/event.js ----
@@ -1313,12 +1323,12 @@ const highlights = [
 
 // ---- src/data/themes.js ----
 const themes = [
-  { id:"01", title:"AI, ML, IoT & Energy", accent:"orange", desc:"AI, ML, IoT application in Petroleum industry / Cyber Security in Energy Sector / Automation in Energy Sector" },
+  { id:"01", title:"AI, ML, IoT & Energy", accent:"orange", desc:"AI, ML, IoT Application In Petroleum Industry / Cyber Security In Energy Sector / Automation In Energy Sector" },
   { id:"02", title:"Renewable Energy", accent:"green", desc:"Unconventional / Renewable Energy Sources" },
-  { id:"03", title:"Waste to Energy", accent:"pink", desc:"Waste to Energy / Zero waste energy" },
+  { id:"03", title:"Waste To Energy", accent:"pink", desc:"Waste To Energy / Zero Waste Ecosystem" },
   { id:"04", title:"Energy Storage & Grid", accent:"orange", desc:"Energy Storage & Utilization / Grid Modernization" },
   { id:"05", title:"Energy Policy & Climate", accent:"green", desc:"Energy Policies & Climate Changes" },
-  { id:"06", title:"Emerging Energy Technologies", accent:"pink", desc:"Emerging Energy Technologies / Strategies for CO₂ capture and utilization / Hydrogen Energy / Nuclear Energy" },
+  { id:"06", title:"Emerging Energy Technologies", accent:"pink", desc:"Emerging Energy Technologies / Strategies For CO₂ Capture And Utilization / Hydrogen Energy / Nuclear Energy" },
 ];
 
 // ---- src/data/eligibility ----
@@ -1359,7 +1369,7 @@ const journey = [
 
 // ---- src/data/dates.js ----
 const dates = [
-  { date:"24 AUG 2026", title:"Idea Submission Starts", tentative:false },
+  { date:"24 AUG 2026", title:"Idea Submission Open", tentative:false },
   { date:"23 SEP 2026", title:"Submission Closes", tentative:false },
   { date:"9–13 NOV 2026", title:"Presentation", tentative:true },
   { date:"BY 20 NOV 2026", title:"Result Declaration", tentative:true },
