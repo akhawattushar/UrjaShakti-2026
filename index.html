@@ -1505,7 +1505,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="d-card reveal">
       <div class="d-date">${d.date}</div>
       <h3>${d.title}</h3>
-      ${d.tentative ? `<span class="pill tentative">Tentative</span>` : `<span class="pill pill-green">Confirmed</span>`}
+      ${d.tentative===null ? `` : d.tentative ? `<span class="pill tentative">Tentative</span>` : `<span class="pill pill-green">Confirmed</span>`}
     </div>`).join("");
 
   // awards
